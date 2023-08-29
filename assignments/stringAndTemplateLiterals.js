@@ -16,5 +16,5 @@ console.log('Philippines have more people than Finland: ' + (population > finlan
 let averageCountryPopulation = 33000000;
 console.log('Philippines have less people than the average country: ' + (population < averageCountryPopulation));
 
-let description = country +' is in '+ continent +' and its '+ population +' people speaks '+ language;
+let description = `${country} is in ${continent}, and its ${population} people speaks ${language}`;
 console.log(description);
