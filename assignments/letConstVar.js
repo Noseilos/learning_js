@@ -1,6 +1,6 @@
 let isIsland = true;
 let language = 'Tagalog';
-let population = '113.9 million';
+let population = 113900000;
 const country = 'Philippines';
 
 console.log('Is Island: ' + isIsland);
