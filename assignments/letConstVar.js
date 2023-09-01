@@ -1,3 +1,5 @@
+'use strict';
+
 let isIsland = true;
 let language = 'Tagalog';
 let population = 113900000;

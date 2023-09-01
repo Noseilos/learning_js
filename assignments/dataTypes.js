@@ -1,3 +1,5 @@
+'use strict';
+
 let isIsland = true;
 let language;
 let population = '113.9 million';

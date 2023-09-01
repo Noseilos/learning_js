@@ -1,3 +1,5 @@
+'use strict';
+
 let firstEquation = '9' - '5'; // = 4 *correct
 let secondEquation = '19' - '13' + '17'; // = 617 *correct
 let thirdEquation = '19' - '13' + 17; // = 23 *correct

@@ -1,3 +1,5 @@
+'use strict';
+
 const numNeighbours = Number(prompt('How many neighbour countries does your country have?'));
 
 // Loose

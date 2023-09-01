@@ -1,3 +1,5 @@
+'use strict';
+
 let speaksEnglish = true;
 let notIsland = false;
 let rightPopulation = true;

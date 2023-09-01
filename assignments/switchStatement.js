@@ -14,6 +14,7 @@ if (day === 'monday'){
 } else {
     console.log('Not a valid day!');
 }
+'use strict';
 
 const language = 'chinese';
 
