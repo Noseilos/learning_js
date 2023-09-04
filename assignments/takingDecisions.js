@@ -1,3 +1,5 @@
+'use strict';
+
 let language = 'Tagalog';
 let population = 113900000;
 const country = 'Philippines';

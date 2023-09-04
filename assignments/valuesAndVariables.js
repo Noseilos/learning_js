@@ -1,3 +1,5 @@
+'use strict';
+
 let country = 'Philippines';
 let continent = 'Asia';
 let population = '113.9 million';
