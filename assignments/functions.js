@@ -5,9 +5,15 @@ let population;
 let capitalCity;
 
 function describeCountry(country, population, capitalCity){
-    console.log(`${country} has ${population} people and its capital city is ${capitalCity}`);
+    const nationState = `${country} has ${population} people and its capital city is ${capitalCity}`;
+    return nationState;
 }
 
-describeCountry('Philippines', '119 million', 'Manila');
-describeCountry('China', '100 million', 'Beijing');
-describeCountry('Taiwan', '15 million', 'Taipei');
+const phState = describeCountry('Philippines', '119 million', 'Manila');
+console.log(phState);
+
+const chState = describeCountry('China', '100 million', 'Beijing');
+console.log(chState);
+
+const taState = describeCountry('Taiwan', '15 million', 'Taipei');
+console.log(taState);
