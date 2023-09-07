@@ -29,8 +29,8 @@ const calcAverage = (score1, score2, score3) => {
     return ((score1 + score2 + score3) / 3).toFixed(2)
 };
 
-const scoreDolphins = calcAverage(85, 54, 41);
-const scoreKoalas = calcAverage(23, 34, 27);
+let scoreDolphins = calcAverage(85, 54, 41);
+let scoreKoalas = calcAverage(23, 34, 27);
 
 function checkWinner(avgDolphins, avgKoalas){
     if ((avgDolphins / 2) >= avgKoalas){
