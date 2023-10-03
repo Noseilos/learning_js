@@ -40,7 +40,7 @@ const myCountry = {
     neighbours: ['China', 'USA', 'Taiwan'],
 
     describe: function(){
-        return `${this.country} has ${this.population} ${this.language}-speaking people, ${this.neighbours.length > 0 ? 'has ' + this.neighbours.length + ' neighbouring countries' : 'is an island' } and a capital called ${this.capital}`
+        return `${this.country} has ${this.population} ${this.language}-speaking people, ${this.neighbours.length > 0 ? 'has ' + this.neighbours.length + ' neighbouring countries and a' : 'is an island and has a' } capital called ${this.capital}`
     }
 };
 
