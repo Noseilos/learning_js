@@ -176,6 +176,20 @@ const evaluateGuess = function(){
     }
 }
 
+const restart = function() {
+    newNumber = Math.trunc(Math.random() * 20) + 1;
+    score = 20;
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.borderRadius = '';
+    document.querySelector('.number').style.width = '15rem';
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.guess').value = '';
+}
+
 document.querySelector('.check').addEventListener('click', evaluateGuess);
+document.querySelector('.again').addEventListener('click', restart)
 
 // ---------------- END Manipulating CSS Styles ---------------- //
