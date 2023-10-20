@@ -108,71 +108,92 @@
 
 let newNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highScore = 0;
+
+const setBackgroundColor = function(color) {
+    document.querySelector('body').style.backgroundColor = color
+}
+
+const setMessage = function(message){
+    document.querySelector('.message').textContent = message;
+}
+
+const setScore = function(sc){
+    document.querySelector('.score').textContent = sc;
+}
 
 const evaluateGuess = function(){
     const guess = Number(document.querySelector('.guess').value);
-    console.log(guess, newNumber);
 
-    if (!guess || guess === 0) {
+    if(score == 0){
 
-        document.querySelector('.message').textContent = `⛔⛔ Enter Number ⛔⛔`;
-        score--;
-        document.querySelector('.score').textContent = score;
-        if (score === 0){
-            document.querySelector('.message').textContent = `You Lost 🥲`;
-        } else {
-            
+        setMessage(`Click Again to Restart`);
+        setBackgroundColor('#4a0a0a');
+        console.log(guess, newNumber);
+
+    } else {
+
+        if (!guess || guess === 0) {
+
+            setMessage(`⛔⛔ Enter Number ⛔⛔`);
+            score--;
+            setScore(score);
+
+        } else if (guess !== newNumber){
+
+            if (guess < newNumber){
+                if(newNumber - guess >= 5){
+                    if (score === 0){
+                        setMessage(`You Lost 🥲`);
+                    } else {
+                        setMessage(`Too Low! Guess Higher`);
+                        score--;
+                        setScore(score);
+                    }
+                } else {
+                    if (score === 0){
+                        setMessage(`You Lost 🥲`);
+                    } else {
+                        setMessage(`Guess Higher`);
+                        score--;
+                        setScore(score);
+                    }
+                }
+            }
+
+            if (guess > newNumber){
+                if(guess - newNumber >= 5){
+                    if (score === 0){
+                        setMessage(`You Lost 🥲`);
+                    } else {
+                        setMessage(`Too High! Guess Lower`);
+                        score--;
+                        setScore(score);
+                    }
+                } else {
+                    if (score === 0){
+                        setMessage(`You Lost 🥲`);
+                    } else {
+                        setMessage(`Guess Lower`);
+                        score--;
+                        setScore(score);
+                    }
+                }
+            }
+
+        } else if (guess === newNumber) {
+
+            setBackgroundColor('#64CCC5');
+            document.querySelector('.number').style.width = '30rem';
+            document.querySelector('.number').style.borderRadius = '20%';
+            setMessage`🎉🎉 You Guessed It! 🎉🎉`;
+            document.querySelector('.number').textContent = newNumber;
+
+            if (score > highScore){
+                highScore = score
+                document.querySelector('.highscore').textContent = highScore;
+            }
         }
-
-    } else if (guess < newNumber){
-
-        if(newNumber - guess >= 5){
-            if (score === 0){
-                document.querySelector('.message').textContent = `You Lost 🥲`;
-            } else {
-                document.querySelector('.message').textContent = `Too Low! Guess Higher`;
-                score--;
-                document.querySelector('.score').textContent = score;
-            }
-        } else {
-            if (score === 0){
-                document.querySelector('.message').textContent = `You Lost 🥲`;
-            } else {
-                document.querySelector('.message').textContent = `Guess Higher`;
-                score--;
-                document.querySelector('.score').textContent = score;
-            }
-        }
-        
-
-    } else if (guess > newNumber) {
-
-        if(guess - newNumber >= 5){
-            if (score === 0){
-                document.querySelector('.message').textContent = `You Lost 🥲`;
-            } else {
-                document.querySelector('.message').textContent = `Too High! Guess Lower`;
-                score--;
-                document.querySelector('.score').textContent = score;
-            }
-        } else {
-            if (score === 0){
-                document.querySelector('.message').textContent = `You Lost 🥲`;
-            } else {
-                document.querySelector('.message').textContent = `Guess Lower`;
-                score--;
-                document.querySelector('.score').textContent = score;
-            }
-        }
-
-    } else if (guess === newNumber) {
-
-        document.querySelector('body').style.backgroundColor = '#64CCC5';
-        document.querySelector('.number').style.width = '30rem';
-        document.querySelector('.number').style.borderRadius = '20%';
-        document.querySelector('.message').textContent = `🎉🎉 You Guessed It! 🎉🎉`;
-        document.querySelector('.number').textContent = newNumber;
-
     }
 }
 
@@ -180,12 +201,12 @@ const restart = function() {
     newNumber = Math.trunc(Math.random() * 20) + 1;
     score = 20;
 
-    document.querySelector('body').style.backgroundColor = '#222';
+    setBackgroundColor('#222');
     document.querySelector('.number').style.borderRadius = '';
     document.querySelector('.number').style.width = '15rem';
     document.querySelector('.number').textContent = '?';
-    document.querySelector('.message').textContent = 'Start guessing...';
-    document.querySelector('.score').textContent = score;
+    setMessage('Start guessing...');
+    setScore(score);
     document.querySelector('.guess').value = '';
 }
 
