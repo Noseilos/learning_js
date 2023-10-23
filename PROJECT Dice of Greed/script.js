@@ -15,14 +15,25 @@ const currentScore1El = document.getElementById('current--1');
 
 
 // Starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+let scores, currentScore, activePlayer, playing;
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+const init = function() {
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    diceEl.classList.add('hidden');
+    
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayer = 0;
+    playing = true;
+    currentScore0El.textContent = 0;
+    currentScore1El.textContent = 0;
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+}
+init();
 
 const switchPlayer = function() {
     currentScore = 0;
@@ -55,6 +66,7 @@ btnRoll.addEventListener('click', function(){
             switchPlayer();
 
         }
+        console.log(`Active: ${activePlayer}`)
     }
 });
 
@@ -78,3 +90,5 @@ btnHold.addEventListener('click', function(){
         }
     }
 })
+
+btnNew.addEventListener('click', init)
