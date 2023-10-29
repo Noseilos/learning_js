@@ -38,29 +38,70 @@ const restaurant = {
   orderPasta: function(ing1, ing2, ing3){
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+
+  orderPizza: function(mainIngredient, ...otherIngerdients){
+    console.log(mainIngredient);
+    console.log(otherIngerdients);
+  },
 };
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// 1) Destructuring
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
-console.log(...newArr);
+const arr = [1, 2, ...[3, 4]];
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
-console.log(...restaurant.mainMenu);
+const [pizza, ,risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza);
+console.log(risotto);
+console.log(otherFood);
 
-// --- Copy array --- 
-const mainMenuCopy = [...restaurant.mainMenu];
+// --- Objects --- 
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
 
-// --- join 2 arrays ---
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// 2) Functions
 
-// --- Real word example --- 
-// Iterables: arrays, strings, maps, sets. NOT objects
+const add = function(...numbers){
+  let sum = 0;
+
+  for(let i = 0; i < numbers.length; i++){
+    sum += numbers[i];
+  }
+
+  console.log(sum);
+}
+add(2, 3);
+add(5, 6, 7, 8, 9);
+add(1, 3, 5, 3, 7, 8, 1);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushroom');
+
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+// console.log(...restaurant.mainMenu);
+
+// // --- Copy array --- 
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// // --- join 2 arrays ---
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// // --- Real word example --- 
+// // Iterables: arrays, strings, maps, sets. NOT objects
 // const str = 'Jonas';
 // const letters = [...str, ' ', 'S.'];
 // console.log(letters);
@@ -71,14 +112,14 @@ console.log(menu);
 
 // restaurant.orderPasta(...ingredients);
 
-// --- Objects --- 
-const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Giuseppe'};
-console.log(newRestaurant);
+// // --- Objects --- 
+// const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Giuseppe'};
+// console.log(newRestaurant);
 
-const restaurantCopy = {...restaurant};
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const restaurantCopy = {...restaurant};
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 // console.log(`${...str} Schmedtmann`);
 
