@@ -33,46 +33,92 @@ const restaurant = {
 
   orderDelivery: function({ time = '22:00', address, mainIndex = 0, starterIndex = 3 }){
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
-  }
+  },
+
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
- const {name, openingHours, categories} = restaurant;
- console.log(name, openingHours, categories);
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
- const { 
-  name: restaurant_name, 
-  openingHours: hours, 
-  categories: tags 
-} = restaurant;
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr);
 
-console.log( restaurant_name, hours, tags );
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+console.log(...restaurant.mainMenu);
 
-// --- Default values ---
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log( menu, starters );
+// --- Copy array --- 
+const mainMenuCopy = [...restaurant.mainMenu];
 
-// --- Mutating variables --- 
-let a = 111;
-let b = 222; 
-const obj = { a: 23, b: 14, c: 13 };
-({ a, b } = obj);
-console.log(a, b);
+// --- join 2 arrays ---
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
 
-// --- Nested Objects --- 
-const { sat: { open: op, close: cl } } = openingHours;
-console.log(op, cl);
+// --- Real word example --- 
+// Iterables: arrays, strings, maps, sets. NOT objects
+// const str = 'Jonas';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+// console.log(...str);
 
-restaurant.orderDelivery({
-  time: '20:30',
-  address: 'Central Bicutan, Block 152',
-  mainIndex: 1,
-  starterIndex: 1,
-});
+// const ingredients = [prompt(`Let's make pasta! Ingredient 1: `), prompt(`Ingredient 2: `), prompt(`Ingredient 3: `)];
+// console.log(ingredients);
 
-restaurant.orderDelivery({
-  address: 'Central Bicutan, Block 152',
-  mainIndex: 1,
-});
+// restaurant.orderPasta(...ingredients);
+
+// --- Objects --- 
+const newRestaurant = {foundedIn: 1998, ...restaurant, founder: 'Giuseppe'};
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+// console.log(`${...str} Schmedtmann`);
+
+// const {name, openingHours, categories} = restaurant;
+// console.log(name, openingHours, categories);
+
+// const { 
+//   name: restaurant_name, 
+//   openingHours: hours, 
+//   categories: tags 
+// } = restaurant;
+
+// console.log( restaurant_name, hours, tags );
+
+// // --- Default values ---
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log( menu, starters );
+
+// // --- Mutating variables --- 
+// let a = 111;
+// let b = 222; 
+// const obj = { a: 23, b: 14, c: 13 };
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// // --- Nested Objects --- 
+// const { sat: { open: op, close: cl } } = openingHours;
+// console.log(op, cl);
+
+// restaurant.orderDelivery({
+//   time: '20:30',
+//   address: 'Central Bicutan, Block 152',
+//   mainIndex: 1,
+//   starterIndex: 1,
+// });
+
+// restaurant.orderDelivery({
+//   address: 'Central Bicutan, Block 152',
+//   mainIndex: 1,
+// });
 
 // const arr = [2, 3, 4];
 // const a = arr[0];
