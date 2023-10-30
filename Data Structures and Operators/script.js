@@ -45,41 +45,66 @@ const restaurant = {
   },
 };
 
-// 1) Destructuring
+// use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
 
-const arr = [1, 2, ...[3, 4]];
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+restaurant.numGuests = 23;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
 
-const [pizza, ,risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza);
-console.log(risotto);
-console.log(otherFood);
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
 
-// --- Objects --- 
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+console.log('----- AND -----');
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'Jonas' );
 
-// 2) Functions
-
-const add = function(...numbers){
-  let sum = 0;
-
-  for(let i = 0; i < numbers.length; i++){
-    sum += numbers[i];
-  }
-
-  console.log(sum);
+// --- Practical example ---
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'spinach');
 }
-add(2, 3);
-add(5, 6, 7, 8, 9);
-add(1, 3, 5, 3, 7, 8, 1);
 
-const x = [23, 5, 7];
-add(...x);
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pasta');
 
-restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
-restaurant.orderPizza('mushroom');
+// // 1) Destructuring
+
+// const arr = [1, 2, ...[3, 4]];
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, ,risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza);
+// console.log(risotto);
+// console.log(otherFood);
+
+// // --- Objects --- 
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+// // 2) Functions
+
+// const add = function(...numbers){
+//   let sum = 0;
+
+//   for(let i = 0; i < numbers.length; i++){
+//     sum += numbers[i];
+//   }
+
+//   console.log(sum);
+// }
+// add(2, 3);
+// add(5, 6, 7, 8, 9);
+// add(1, 3, 5, 3, 7, 8, 1);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+// restaurant.orderPizza('mushroom');
 
 // const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
