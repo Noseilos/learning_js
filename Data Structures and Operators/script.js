@@ -45,30 +45,38 @@ const restaurant = {
   },
 };
 
-// use ANY data type, return ANY data type, short-circuiting
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
-
-restaurant.numGuests = 23;
+restaurant.numGuests = 0;
 const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guest1);
 
-const guest2 = restaurant.numGuests || 10;
-console.log(guest2);
+// Nullish: null or undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
-console.log('----- AND -----');
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
-console.log('Hello' && 23 && null && 'Jonas' );
+// // use ANY data type, return ANY data type, short-circuiting
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-// --- Practical example ---
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushroom', 'spinach');
-}
+// restaurant.numGuests = 23;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
 
-restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pasta');
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
+
+// console.log('----- AND -----');
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+// console.log('Hello' && 23 && null && 'Jonas' );
+
+// // --- Practical example ---
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushroom', 'spinach');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pasta');
 
 // // 1) Destructuring
 
