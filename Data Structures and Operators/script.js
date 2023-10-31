@@ -125,36 +125,69 @@ const game = {
 
 };
 
-const [ players1, players2 ] = [ game.players[0], game.players[1] ];
-console.log(`Team 1: `, players1); 
-console.log(`Team 2: `, players2); 
+// ------------ SOLUTION ------------
+// 1.)
+const [ players1, players2 ] = game.players;
+console.log(players1, players2);
 
-const gk  = players1[0];
-const [ , ...fieldPlayers] = [ ...players1 ]
-console.log( 'Goal Keeper: ', gk);
-console.log( 'Field Players: ', fieldPlayers);
+// 2.)
+const [ gk, ...fieldPlayers ] = players1;
+console.log(fieldPlayers);
+console.log(gk);
 
+// 3.)
 const allPlayers = [ ...players1, ...players2 ];
-console.log( 'All Players: ', allPlayers);
+console.log(allPlayers);
 
-const playersFinal = [ ...players1, 'Thiago', 'Countinho', 'Perisic' ];
-console.log( 'Final Players: ', playersFinal);
+// 4.)
+const players1Final = [ ...players1, 'Thiago', 'Coutinho', 'Perisic' ];
+console.log(players1Final);
 
-const { team1, x: draw, team2 } = game.odds;
-console.log( 'Game odds: ', team1, draw, team2);
+// 5.)
+const { odds: {team1, x: draw, team2} } = game;
+console.log( team1, draw, team2);
 
-const printGoals = function(playerNames){
+// 6.)
+const printGoals = function(...players){
+  console.log(players.length);
+}
 
-  for(let i = 0; i < playerNames; i++) console.log(game.scored[i]);
-  console.log(playerNames);
+printGoals(...game.scored);
 
-};
+// 7.)
+team1 < team2 && console.log('Team 1 is more likely to win');
+team2 < team1 && console.log('Team 2 is more likely to win');
 
-printGoals(game.scored.length);
+// const [ players1, players2 ] = [ game.players[0], game.players[1] ];
+// console.log(`Team 1: `, players1); 
+// console.log(`Team 2: `, players2); 
 
-console.log( (game.odds.team2 < game.odds.x) && (game.odds.team2 < game.odds.team1) && 'Team 2 wins' || 
-             (game.odds.x < game.odds.team1) && (game.odds.x < game.odds.team2) && 'Draw' ||
-             (game.odds.team1 < game.odds.x) && (game.odds.team1 < game.odds.team2) && 'Team 1 wins');
+// const gk  = players1[0];
+// const [ , ...fieldPlayers] = [ ...players1 ]
+// console.log( 'Goal Keeper: ', gk);
+// console.log( 'Field Players: ', fieldPlayers);
+
+// const allPlayers = [ ...players1, ...players2 ];
+// console.log( 'All Players: ', allPlayers);
+
+// const playersFinal = [ ...players1, 'Thiago', 'Countinho', 'Perisic' ];
+// console.log( 'Final Players: ', playersFinal);
+
+// const { team1, x: draw, team2 } = game.odds;
+// console.log( 'Game odds: ', team1, draw, team2);
+
+// const printGoals = function(playerNames){
+
+//   for(let i = 0; i < playerNames; i++) console.log(game.scored[i]);
+//   console.log(playerNames);
+
+// };
+
+// printGoals(game.scored.length);
+
+// console.log( (game.odds.team2 < game.odds.x) && (game.odds.team2 < game.odds.team1) && 'Team 2 wins' || 
+//              (game.odds.x < game.odds.team1) && (game.odds.x < game.odds.team2) && 'Draw' ||
+//              (game.odds.team1 < game.odds.x) && (game.odds.team1 < game.odds.team2) && 'Team 1 wins');
 
 // const rest2 = {
 //   name: 'La Piazza',
