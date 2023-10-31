@@ -45,13 +45,42 @@ const restaurant = {
   },
 };
 
-restaurant.numGuests = 0;
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest1);
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
 
-// Nullish: null or undefined (NOT 0 or '')
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 11;
+// rest2.numGuests ||= 11;
+
+// Nullish assignment operator (null or undefined)
+rest1.numGuests ??= 11;
+rest2.numGuests ??= 11;
+
+// AND assignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+// restaurant.numGuests = 0;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
+
+// // Nullish: null or undefined (NOT 0 or '')
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
 // // use ANY data type, return ANY data type, short-circuiting
 // console.log(3 || 'Jonas');
