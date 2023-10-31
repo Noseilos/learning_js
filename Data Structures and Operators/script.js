@@ -125,38 +125,45 @@ const game = {
 
 };
 
-// ------------ SOLUTION ------------
-// 1.)
-const [ players1, players2 ] = game.players;
-console.log(players1, players2);
+const menu = [ ...restaurant.starterMenu, ...restaurant.mainMenu ];
+console.log(menu);
 
-// 2.)
-const [ gk, ...fieldPlayers ] = players1;
-console.log(fieldPlayers);
-console.log(gk);
+for(const item of menu) console.log(item);
 
-// 3.)
-const allPlayers = [ ...players1, ...players2 ];
-console.log(allPlayers);
+for(const [i, element] of menu.entries()) console.log(`${i + 1}: ${element}`);
 
-// 4.)
-const players1Final = [ ...players1, 'Thiago', 'Coutinho', 'Perisic' ];
-console.log(players1Final);
+// // ------------ SOLUTION ------------
+// // 1.)
+// const [ players1, players2 ] = game.players;
+// console.log(players1, players2);
 
-// 5.)
-const { odds: {team1, x: draw, team2} } = game;
-console.log( team1, draw, team2);
+// // 2.)
+// const [ gk, ...fieldPlayers ] = players1;
+// console.log(fieldPlayers);
+// console.log(gk);
 
-// 6.)
-const printGoals = function(...players){
-  console.log(players.length);
-}
+// // 3.)
+// const allPlayers = [ ...players1, ...players2 ];
+// console.log(allPlayers);
 
-printGoals(...game.scored);
+// // 4.)
+// const players1Final = [ ...players1, 'Thiago', 'Coutinho', 'Perisic' ];
+// console.log(players1Final);
 
-// 7.)
-team1 < team2 && console.log('Team 1 is more likely to win');
-team2 < team1 && console.log('Team 2 is more likely to win');
+// // 5.)
+// const { odds: {team1, x: draw, team2} } = game;
+// console.log( team1, draw, team2);
+
+// // 6.)
+// const printGoals = function(...players){
+//   console.log(players.length);
+// }
+
+// printGoals(...game.scored);
+
+// // 7.)
+// team1 < team2 && console.log('Team 1 is more likely to win');
+// team2 < team1 && console.log('Team 2 is more likely to win');
 
 // const [ players1, players2 ] = [ game.players[0], game.players[1] ];
 // console.log(`Team 1: `, players1); 
