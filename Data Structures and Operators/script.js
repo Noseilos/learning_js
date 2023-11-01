@@ -17,7 +17,7 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [`day-${2 + 4}`]: {
+  [weekdays[2 + 4]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -51,9 +51,37 @@ const restaurant = {
   },
 };
 
+if(restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+if(restaurant.openingHours.thu) console.log(restaurant.openingHours.thu.open);
 
+// with OPTIONAL CHAINING
+console.log(restaurant.openingHours.mon?.open); 
+console.log(restaurant.openingHours?.sat?.open);
 
+// EXAMPLE
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for(const day of days){
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we are open at ${open}`);
+}
 
+// Methods
+console.log( restaurant.order?.(0, 1) ?? 'Method does not exist' );
+console.log( restaurant.orderRisoto?.(0, 1) ?? 'Method does not exist' );
+
+// Arrays
+const users = [
+  {
+    name: 'Jonas',
+    email: 'jonas@email.io',
+  },
+  {
+    name: 'Grischuk',
+    email: 'grish@email.io',
+  }
+]
+
+console.log(users[2]?.name ?? 'User array empty');
 
 /* 
 
