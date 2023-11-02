@@ -51,28 +51,126 @@ const restaurant = {
   },
 };
 
-// Property NAMES
-const properties = Object.keys(openingHours);
-console.log(properties);
+const game = {
 
-let openStr = `We are open on ${properties.length} days: `
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer', 
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witzel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  data: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 
-for(const day of properties){
-  openStr += `${day}, `;
+};
+
+// ---------------- CODING CHALLENGE #2 ----------------
+/* 
+
+1. Loop over the game.score array and print each player name to the console,
+along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console.
+3. Print 3 odds to the console, in a nice formatted way, exactly like this:
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them (except for
+"draw"). HINT: Note how the odds and the game object have the same property names
+
+BONUS: Create an object called 'scorers' which contains the name of the players
+who scored as properties, and number of goals as the value. In this game it will
+look like this.
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2,
+      }
+
+
+*/
+
+console.log('--------- ITEM 1 ---------');
+for(const [i, element] of game.scored.entries()){
+  console.log(`Goal ${i + 1}: ${element}`);
 }
-console.log(openStr);
 
-// Property VALUES
-const values = Object.values(openingHours);
-console.log(values);
+const gameOdds = Object.entries(game.odds);
 
-// Entire object
-const entries = Object.entries(openingHours);
-// console.log(entries);
-
-for(const [key, { open, close }] of entries){
-  console.log( `On ${key}, we are open at ${open} and will close at ${close}` );
+console.log('\n--------- ITEM 2 ---------');
+let sum = 0;
+for(const [key, odd] of gameOdds){
+  sum += odd;
 }
+console.log(`Average odd: ${sum / gameOdds.length}`);
+
+console.log('\n--------- ITEM 3 ---------');
+for(const [key, odd] of gameOdds){
+  console.log(`Odd of ${game[key] ? 'victory ' + game[key] : 'draw'}: ${odd}`)
+}
+
+console.log('\n--------- BONUS ---------');
+const scorers = {};
+for(const [i, element] of game.scored.entries()){
+  scorers[element] = scorers[element] ? scorers[element] + 1 : 1;
+}
+
+console.log(scorers);
+
+
+
+
+// // Property NAMES
+// const properties = Object.keys(openingHours);
+// console.log(properties);
+
+// let openStr = `We are open on ${properties.length} days: `
+
+// for(const day of properties){
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
+
+// // Property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// // Entire object
+// const entries = Object.entries(openingHours);
+// // console.log(entries);
+
+// for(const [key, { open, close }] of entries){
+//   console.log( `On ${key}, we are open at ${open} and will close at ${close}` );
+// }
 
 // if(restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 // if(restaurant.openingHours.thu) console.log(restaurant.openingHours.thu.open);
