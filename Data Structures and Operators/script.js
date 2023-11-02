@@ -119,34 +119,55 @@ look like this.
 
 */
 
-console.log('--------- ITEM 1 ---------');
+
+// ------------- SOLUTION -------------
+// 1. )
 for(const [i, element] of game.scored.entries()){
   console.log(`Goal ${i + 1}: ${element}`);
 }
 
-const gameOdds = Object.entries(game.odds);
-
-console.log('\n--------- ITEM 2 ---------');
-let sum = 0;
-for(const [key, odd] of gameOdds){
-  sum += odd;
-}
-console.log(`Average odd: ${sum / gameOdds.length}`);
-
-console.log('\n--------- ITEM 3 ---------');
-for(const [key, odd] of gameOdds){
-  console.log(`Odd of ${game[key] ? 'victory ' + game[key] : 'draw'}: ${odd}`)
+// 2. )
+let average = 0;
+const odds = Object.values(game.odds);
+for(const odd of odds){
+  average += odd
 }
 
-console.log('\n--------- BONUS ---------');
-const scorers = {};
-for(const [i, element] of game.scored.entries()){
-  scorers[element] = scorers[element] ? scorers[element] + 1 : 1;
+average /= odds.length
+console.log(average);
+
+// 3. )
+for( const[team, odd] of Object.entries(game.odds) ){
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odds of ${teamStr}: ${odd}`);
 }
 
-console.log(scorers);
+// console.log('--------- ITEM 1 ---------');
+// for(const [i, element] of game.scored.entries()){
+//   console.log(`Goal ${i + 1}: ${element}`);
+// }
 
+// const gameOdds = Object.entries(game.odds);
 
+// console.log('\n--------- ITEM 2 ---------');
+// let sum = 0;
+// for(const [key, odd] of gameOdds){
+//   sum += odd;
+// }
+// console.log(`Average odd: ${sum / gameOdds.length}`);
+
+// console.log('\n--------- ITEM 3 ---------');
+// for(const [key, odd] of gameOdds){
+//   console.log(`Odd of ${game[key] ? 'victory ' + game[key] : 'draw'}: ${odd}`)
+// }
+
+// console.log('\n--------- BONUS ---------');
+// const scorers = {};
+// for(const [i, element] of game.scored.entries()){
+//   scorers[element] = scorers[element] ? scorers[element] + 1 : 1;
+// }
+
+// console.log(scorers);
 
 
 // // Property NAMES
