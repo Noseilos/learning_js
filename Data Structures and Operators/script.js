@@ -94,6 +94,36 @@ const game = {
 
 };
 
+const ordersSet = new Set([
+                            'Pasta', 
+                            'Pizza', 
+                            'Pizza', 
+                            'Risotto', 
+                            'Pasta', 
+                            'Pizza']);
+console.log(ordersSet);
+console.log(new Set('Jonas'))
+console.log(ordersSet.size);
+console.log(ordersSet.has('Bread'));
+console.log(ordersSet.has('Pizza'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+
+ordersSet.delete('Risotto');
+console.log(ordersSet);
+
+// ordersSet.clear();
+// console.log(ordersSet);
+
+for(const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const uniqueStaff = [...new Set(staff)];
+console.log(uniqueStaff);
+console.log(new Set(staff).size);
+console.log(new Set('jonaseguiron').size)
+
 // ---------------- CODING CHALLENGE #2 ----------------
 /* 
 
@@ -119,28 +149,27 @@ look like this.
 
 */
 
+// // ------------- SOLUTION -------------
+// // 1. )
+// for(const [i, element] of game.scored.entries()){
+//   console.log(`Goal ${i + 1}: ${element}`);
+// }
 
-// ------------- SOLUTION -------------
-// 1. )
-for(const [i, element] of game.scored.entries()){
-  console.log(`Goal ${i + 1}: ${element}`);
-}
+// // 2. )
+// let average = 0;
+// const odds = Object.values(game.odds);
+// for(const odd of odds){
+//   average += odd
+// }
 
-// 2. )
-let average = 0;
-const odds = Object.values(game.odds);
-for(const odd of odds){
-  average += odd
-}
+// average /= odds.length
+// console.log(average);
 
-average /= odds.length
-console.log(average);
-
-// 3. )
-for( const[team, odd] of Object.entries(game.odds) ){
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odds of ${teamStr}: ${odd}`);
-}
+// // 3. )
+// for( const[team, odd] of Object.entries(game.odds) ){
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odds of ${teamStr}: ${odd}`);
+// }
 
 // console.log('--------- ITEM 1 ---------');
 // for(const [i, element] of game.scored.entries()){
