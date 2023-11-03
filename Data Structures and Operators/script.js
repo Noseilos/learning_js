@@ -94,35 +94,64 @@ const game = {
 
 };
 
-const ordersSet = new Set([
-                            'Pasta', 
-                            'Pizza', 
-                            'Pizza', 
-                            'Risotto', 
-                            'Pasta', 
-                            'Pizza']);
-console.log(ordersSet);
-console.log(new Set('Jonas'))
-console.log(ordersSet.size);
-console.log(ordersSet.has('Bread'));
-console.log(ordersSet.has('Pizza'));
-ordersSet.add('Garlic Bread');
-ordersSet.add('Garlic Bread');
+const restaurantMap = new Map();
+restaurantMap.set('name', 'Classico Italiano');
+restaurantMap.set(1, 'Firenze, Italy');
+console.log(restaurantMap.set(2, 'Lisbon, Portugal'));
 
-ordersSet.delete('Risotto');
-console.log(ordersSet);
+restaurantMap.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
 
-// ordersSet.clear();
+console.log(restaurantMap.get('name'));
+console.log(restaurantMap.get(true));
+console.log(restaurantMap.get(1));
+
+const time = 21;
+console.log(restaurantMap.get(time < restaurantMap.get('close') && time >= restaurantMap.get('open')));
+
+console.log(restaurantMap.has('categories'));
+restaurantMap.delete(2);
+console.log(restaurantMap);
+// restaurantMap.clear();
+console.log(restaurantMap.size);
+
+const arr = [1, 2];
+restaurantMap.set(arr, 'Test');
+restaurantMap.set(document.querySelector('h1'), 'Heading');
+console.log(restaurantMap);
+
+// const ordersSet = new Set([
+//                             'Pasta', 
+//                             'Pizza', 
+//                             'Pizza', 
+//                             'Risotto', 
+//                             'Pasta', 
+//                             'Pizza']);
+// console.log(ordersSet);
+// console.log(new Set('Jonas'))
+// console.log(ordersSet.size);
+// console.log(ordersSet.has('Bread'));
+// console.log(ordersSet.has('Pizza'));
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
+
+// ordersSet.delete('Risotto');
 // console.log(ordersSet);
 
-for(const order of ordersSet) console.log(order);
+// // ordersSet.clear();
+// // console.log(ordersSet);
 
-// Example
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-const uniqueStaff = [...new Set(staff)];
-console.log(uniqueStaff);
-console.log(new Set(staff).size);
-console.log(new Set('jonaseguiron').size)
+// for(const order of ordersSet) console.log(order);
+
+// // Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const uniqueStaff = [...new Set(staff)];
+// console.log(uniqueStaff);
+// console.log(new Set(staff).size);
+// console.log(new Set('jonaseguiron').size)
 
 // ---------------- CODING CHALLENGE #2 ----------------
 /* 
