@@ -94,34 +94,69 @@ const game = {
 
 };
 
-const restaurantMap = new Map();
-restaurantMap.set('name', 'Classico Italiano');
-restaurantMap.set(1, 'Firenze, Italy');
-console.log(restaurantMap.set(2, 'Lisbon, Portugal'));
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct!'],
+  [false, 'Try again'],
+]);
+console.log(question);
 
-restaurantMap.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'We are open')
-  .set(false, 'We are closed');
+// Convert object to map 
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
 
-console.log(restaurantMap.get('name'));
-console.log(restaurantMap.get(true));
-console.log(restaurantMap.get(1));
+// Quiz app
+console.log(question.get('question'));
+for(const [key, value] of question){
+  if(typeof key === 'number') console.log(`Answer ${key}: ${value}`)
+};
 
-const time = 21;
-console.log(restaurantMap.get(time < restaurantMap.get('close') && time >= restaurantMap.get('open')));
+// const answer = Number(prompt('Your answer'));
+// console.log(answer);
 
-console.log(restaurantMap.has('categories'));
-restaurantMap.delete(2);
-console.log(restaurantMap);
-// restaurantMap.clear();
-console.log(restaurantMap.size);
+// if (answer === question.get('correct')) {
+//   console.log(question.get(true));
+// } else {
+//   console.log(question.get(false));
+// }
 
-const arr = [1, 2];
-restaurantMap.set(arr, 'Test');
-restaurantMap.set(document.querySelector('h1'), 'Heading');
-console.log(restaurantMap);
+console.log([...question]);
+console.log([...question.keys()]);
+console.log([...question.values()]);
+
+// const restaurantMap = new Map();
+// restaurantMap.set('name', 'Classico Italiano');
+// restaurantMap.set(1, 'Firenze, Italy');
+// console.log(restaurantMap.set(2, 'Lisbon, Portugal'));
+
+// restaurantMap.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open')
+//   .set(false, 'We are closed');
+
+// console.log(restaurantMap.get('name'));
+// console.log(restaurantMap.get(true));
+// console.log(restaurantMap.get(1));
+
+// const time = 21;
+// console.log(restaurantMap.get(time < restaurantMap.get('close') && time >= restaurantMap.get('open')));
+
+// console.log(restaurantMap.has('categories'));
+// restaurantMap.delete(2);
+// console.log(restaurantMap);
+// // restaurantMap.clear();
+// console.log(restaurantMap.size);
+
+// const arr = [1, 2];
+// restaurantMap.set(arr, 'Test');
+// restaurantMap.set(document.querySelector('h1'), 'Heading');
+// console.log(restaurantMap);
 
 // const ordersSet = new Set([
 //                             'Pasta', 
