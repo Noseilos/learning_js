@@ -77,4 +77,27 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
+// SLICE
 console.log(arr.slice(1));
+console.log(arr.slice(1, 4));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -1));
+
+
+// SPLICE
+console.log('remove: ', arr.splice(-1));
+console.log('remove: ', arr.splice(-2));
+console.log(arr)
+
+// REVERSE
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arrTwo = ['j', 'i', 'h', 'g', 'f']
+console.log('reversed: ', arrTwo.reverse())
+console.log(arrTwo)
+
+// CONCAT
+const letters = arr.concat(arrTwo);
+console.log('concatinated: ', letters);
+
+// JOIN
+console.log(letters.join(' '))
