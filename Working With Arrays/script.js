@@ -260,7 +260,7 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3])
 
 
 
-
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const eurToPhp = 61.12;
@@ -284,4 +284,26 @@ const movementDescription = movements.map((mov, i) => {
 });
 
 console.log(movementDescription);
+*/
 
+
+
+
+
+// --------------- COMPUTING USERNAMES ---------------
+
+
+
+const createUsernames = function(accs){
+  accs.forEach(function(acc){
+    acc.username = acc.owner.toLowerCase().split(' ').map(function(name){
+      return name[0];
+    }).join('')
+  })
+
+}
+
+const user = 'James Johannes Burge';
+
+createUsernames(accounts)
+console.log(accounts)
